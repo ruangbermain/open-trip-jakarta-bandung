@@ -29,29 +29,21 @@
       z-index: -2;
     }
 
-    body {
-      min-height: 100vh;
-      background:
-        linear-gradient(
-          rgba(2, 6, 23, 0.85),
-          rgba(2, 6, 23, 0.95)
-        ),
-        url('bg.jpg') center/cover no-repeat;
-      z-index: 0;
-      color: #ffffff;
-      line-height: 1.6;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+   body {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(2, 6, 23, 0.4),    /* dari 0.85 menjadi 0.4 */
+      rgba(2, 6, 23, 0.6)     /* dari 0.95 menjadi 0.6 */
+    ),
+    url('bg.jpg') center/cover no-repeat;
+  z-index: 0;
+  color: #ffffff;
+  line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: -1;
-      pointer-events: none;
-    }
-
+    
     /* ========== HEADER BANNER DENGAN GAMBAR ========== */
     .header-banner {
       width: 100%;
