@@ -37,8 +37,16 @@ footer { text-align: center; padding: 20px; font-size: 14px; color: #777; }
 </header>
 
 
-<section class="container grid">
+<section class="container">
 <div class="card">
+<div class="tabs">
+<button class="tab-btn active" onclick="openTab('overview')">Overview</button>
+<button class="tab-btn" onclick="openTab('itinerary')">Itinerary</button>
+<button class="tab-btn" onclick="openTab('price')">Price</button>
+</div>
+
+
+<div id="overview" class="tab-content active">
 <h2>Overview</h2>
 <p>Perjalanan 3 hari 2 malam mengunjungi Jakarta dan Bandung. Cocok untuk study tour, gathering kampus, dan open trip mahasiswa.</p>
 <ul>
@@ -49,13 +57,40 @@ footer { text-align: center; padding: 20px; font-size: 14px; color: #777; }
 </div>
 
 
-<div class="card">
-<h3>Starting Price</h3>
-<div class="price">IDR 1.530.000</div>
-<p>Per orang (min. 30 pax)</p>
-<p><strong>Start:</strong> Semarang</p>
-<p><strong>Durasi:</strong> 3 Hari 2 Malam</p>
+<div id="itinerary" class="tab-content">
+<h2>Itinerary</h2>
+<h4>Day 1 – Semarang → Jakarta</h4>
+<ul>
+<li>Berangkat pagi dari Semarang</li>
+<li>Dufan & Ancol</li>
+<li>Check-in hotel Jakarta</li>
+</ul>
+
+
+<h4>Day 2 – Jakarta → Bandung</h4>
+<ul>
+<li>Cibaduyut</li>
+<li>Braga Street</li>
+<li>Hotel Bandung</li>
+</ul>
+
+
+<h4>Day 3 – Bandung → Semarang</h4>
+<ul>
+<li>Kawah Putih</li>
+<li>Kembali ke Semarang</li>
+</ul>
+</div>
+
+
+<div id="price" class="tab-content">
+<h2>Price & Info</h2>
+<p class="price">IDR 1.530.000 / pax</p>
+<p>✔ Transport Bus</p>
+<p>✔ Hotel 2 malam</p>
+<p>✔ Makan & tiket wisata</p>
 <a href="https://wa.me/628xxxxxxxxxx" class="btn">Chat WhatsApp</a>
+</div>
 </div>
 </section>
 
@@ -70,41 +105,3 @@ footer { text-align: center; padding: 20px; font-size: 14px; color: #777; }
 <li>Tiba di Jakarta, makan siang</li>
 <li>Wisata Dufan & Ancol Beach Area</li>
 <li>Makan malam</li>
-<li>Check-in hotel Jakarta & istirahat</li>
-</ul>
-</div>
-
-
-<div class="card" style="margin-bottom:30px">
-<h3>Day 2 – Jakarta → Bandung</h3>
-<ul>
-<li>Sarapan & check-out hotel</li>
-<li>Perjalanan menuju Bandung</li>
-<li>Wisata belanja Cibaduyut</li>
-<li>Makan siang</li>
-<li>Jalan santai & foto di Braga Street</li>
-<li>Makan malam</li>
-<li>Check-in hotel Bandung & free time</li>
-</ul>
-</div>
-
-
-<div class="card" style="margin-bottom:40px">
-<h3>Day 3 – Bandung → Semarang</h3>
-<ul>
-<li>Sarapan & check-out hotel</li>
-<li>Wisata alam Kawah Putih Ciwidey</li>
-<li>Makan siang</li>
-<li>Perjalanan kembali ke Semarang</li>
-<li>Tiba di Semarang (trip selesai)</li>
-</ul>
-</div>
-</section>
-
-
-<section class="container">
-<h2>Trip Highlights</h2>
-<div class="highlights">
-<div class="card">
-<h4>Jakarta Fun</h4>
-<p>Main di Dufan dan santai di Pantai Ancol.</p>
