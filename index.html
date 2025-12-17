@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Open Trip 3D2N Jakarta – Bandung</title>
+  <title>3D2N Jakarta – Bandung Open Trip</title>
 
   <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,523 +11,220 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+    body{background:radial-gradient(circle at top,#0f172a,#020617);color:#e5e7eb}
+    h1,h2,h3,h4{color:#f8fafc}
+    p{line-height:1.7}
+
+    .container{max-width:1100px;margin:auto;padding:40px 20px}
+    .card{background:rgba(15,23,42,.88);border-radius:18px;padding:30px;box-shadow:0 25px 60px rgba(0,0,0,.4)}
+
+    header{text-align:center;padding:80px 20px 50px}
+    header h1{font-size:38px;margin-bottom:10px}
+    header p{color:#cbd5f5;max-width:720px;margin:auto}
+    .badge{display:inline-block;background:linear-gradient(135deg,#22c55e,#16a34a);color:#052e16;padding:6px 16px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:16px}
+
+    .layout{display:grid;grid-template-columns:2fr 1fr;gap:30px}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}}
+
+    /* TABS */
+    .tab-menu{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:25px}
+    .tab-menu button{padding:10px 20px;border-radius:999px;border:none;background:rgba(148,163,184,.12);color:#cbd5f5;cursor:pointer;transition:.25s}
+    .tab-menu button.active{background:linear-gradient(135deg,#22c55e,#16a34a);color:#052e16;font-weight:600;box-shadow:0 10px 30px rgba(34,197,94,.4)}
+
+    .tab-content{display:none;animation:fade .35s ease}
+    .tab-content.active{display:block}
+    @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+    /* OVERVIEW & GRID */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:25px}
+    .box{background:linear-gradient(180deg,rgba(15,23,42,.95),rgba(2,6,23,.95));border-radius:16px;padding:22px;border:1px solid rgba(255,255,255,.06);transition:.3s}
+    .box:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(0,0,0,.45);border-color:rgba(34,197,94,.5)}
+    .icon{font-size:28px;margin-bottom:10px;display:inline-block}
+
+    /* ITINERARY */
+    .timeline{margin-top:25px;position:relative;padding-left:28px}
+    .timeline::before{content:"";position:absolute;left:8px;top:0;width:3px;height:100%;background:linear-gradient(180deg,#22c55e,#16a34a);border-radius:99px}
+    .step{position:relative;margin-bottom:26px;padding-left:26px}
+    .step::before{content:"";position:absolute;left:-2px;top:6px;width:14px;height:14px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 4px rgba(34,197,94,.25)}
+    .time{font-size:13px;color:#bbf7d0;font-weight:600}
+    .desc{font-size:14px}
+
+    /* PRICE BOX */
+    .price-box{
+      position:sticky;
+      top:30px;
+      border-radius:22px;
+      padding:32px 28px;
+      color:#ecfeff;
+      overflow:hidden;
+      box-shadow:0 30px 80px rgba(34,197,94,.45);
+      background:
+        linear-gradient(180deg,rgba(2,44,34,.85),rgba(2,6,23,.95)),
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');
+      background-size:cover;
+      background-position:center;
     }
 
-    body {
-      background: radial-gradient(circle at top, #0f172a, #020617);
-      color: #e5e7eb;
-      line-height: 1.6;
+    .price-box::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top,rgba(34,197,94,.25),transparent 60%);
+      pointer-events:none;
     }
 
-    /* ===== GLOBAL ===== */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
+    .price-box > *{position:relative;z-index:1}
+
+    .price{font-size:38px;font-weight:700;margin:12px 0}
+
+    .btn{
+      display:block;
+      text-align:center;
+      margin-top:26px;
+      padding:15px;
+      border-radius:999px;
+      font-weight:700;
+      background:linear-gradient(135deg,#22c55e,#16a34a);
+      color:#052e16;
+      text-decoration:none;
+      box-shadow:0 15px 40px rgba(34,197,94,.55);
+      transition:.3s
     }
 
-    .card {
-      background: rgba(15,23,42,.85);
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 25px 60px rgba(0,0,0,.4);
-    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 25px 60px rgba(34,197,94,.75)}
 
-    h1, h2, h3, h4 {
-      color: #f8fafc;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      padding: 70px 20px 40px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      color: #cbd5f5;
-      max-width: 720px;
-      margin: auto;
-    }
-
-    .badge {
-      display: inline-block;
-      background: linear-gradient(135deg,#22c55e,#16a34a);
-      color: #052e16;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-
-    /* ===== LAYOUT ===== */
-    .layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 30px;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ===== TABS ===== */
-    .tab-menu {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .tab-menu button {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: rgba(148,163,184,.1);
-      border: none;
-      color: #cbd5f5;
-      cursor: pointer;
-      transition: all .25s ease;
-    }
-
-    .tab-menu button:hover {
-      background: rgba(34,197,94,.18);
-      color: #bbf7d0;
-    }
-
-    .tab-menu button.active {
-      background: linear-gradient(135deg,#22c55e,#16a34a);
-      color: #052e16;
-      font-weight: 600;
-      box-shadow: 0 10px 30px rgba(34,197,94,.45);
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeUp .4s ease;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ===== PRICE BOX ===== */
-    .price-box {
-      background: linear-gradient(180deg,#022c22,#052e16);
-      border-radius: 22px;
-      padding: 30px;
-      position: sticky;
-      top: 30px;
-      box-shadow: 0 25px 70px rgba(34,197,94,.45);
-    }
-
-    .price-label {
-      font-size: 13px;
-      color: #bbf7d0;
-    }
-
-    .price {
-      font-size: 34px;
-      font-weight: 700;
-      margin: 10px 0 5px;
-    }
-
-    .price-note {
-      font-size: 14px;
-      opacity: .85;
-    }
-
-    .price-benefits div {
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
-    .btn {
-      display: block;
-      margin-top: 20px;
-      text-align: center;
-      padding: 14px;
-      border-radius: 999px;
-      font-weight: 600;
-      background: linear-gradient(135deg,#22c55e,#16a34a);
-      color: #052e16;
-      text-decoration: none;
-    }
-
-    /* ===== OVERVIEW ===== */
-
-/* ===== ITINERARY TIMELINE ===== */
-.itinerary-timeline {
-  position: relative;
-  margin-top: 30px;
-  padding-left: 30px;
-}
-
-.itinerary-timeline::before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background: linear-gradient(180deg,#22c55e,#16a34a);
-  border-radius: 999px;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 30px;
-  padding-left: 30px;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -2px;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  background: #22c55e;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(34,197,94,.25);
-}
-
-.timeline-time {
-  font-size: 13px;
-  color: #bbf7d0;
-  font-weight: 600;
-}
-
-.timeline-desc {
-  font-size: 14px;
-  color: #e5e7eb;
-}
-
-
-.overview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 25px;
-}
-
-.overview-card {
-  background: linear-gradient(180deg, rgba(15,23,42,.9), rgba(2,6,23,.9));
-  border-radius: 16px;
-  padding: 22px;
-  border: 1px solid rgba(255,255,255,.06);
-  transition: all .3s ease;
-}
-
-.overview-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(0,0,0,.45);
-  border-color: rgba(34,197,94,.5);
-}
-
-.overview-card .icon {
-  font-size: 28px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.overview-card h4 {
-  font-size: 16px;
-  margin-bottom: 6px;
-  color: #f8fafc;
-}
-
-.overview-card p {
-  font-size: 14px;
-  color: #cbd5f5;
-}
-
-/* ===== HIGHLIGHTS ===== */
-.highlight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 25px;
-}
-
-.highlight-card {
-  background: linear-gradient(180deg, rgba(15,23,42,.9), rgba(2,6,23,.9));
-  border-radius: 16px;
-  padding: 22px;
-  border: 1px solid rgba(255,255,255,.06);
-  transition: all .3s ease;
-}
-
-.highlight-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(0,0,0,.45);
-  border-color: rgba(34,197,94,.5);
-}
-
-.highlight-card .icon {
-  font-size: 28px;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.highlight-card h4 {
-  font-size: 16px;
-  margin-bottom: 6px;
-  color: #f8fafc;
-}
-
-.highlight-card p {
-  font-size: 14px;
-  color: #cbd5f5;
-}
-
-.price-desc {
-  font-size: 14px;
-  color: #cbd5f5;
-  margin-bottom: 25px;
-}
-
-.package-list {
-  margin-top: 12px;
-  padding-left: 18px;
-  font-size: 14px;
-  color: #e5e7eb;
-}
-
-.package-list li {
-  margin-bottom: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #94a3b8;
-  font-size: 14px;
-}
+    footer{text-align:center;padding:30px;color:#94a3b8;font-size:14px}
   </style>
 </head>
 <body>
 
 <header>
-  <span class="badge">Affordable for Student</span>
-  <h1>3D2N Jakarta – Bandung Student Trip</h1>
-  <p>Open trip edukatif dan rekreasi untuk mahasiswa. Start dari Semarang, sudah termasuk transportasi, hotel, dan makan.</p>
+  <span class="badge">Student Friendly Trip</span>
+  <h1>3D2N Jakarta – Bandung Open Trip</h1>
+  <p>Affordable, fun, and well-organized open trip for students & communities. Start from Semarang.</p>
 </header>
 
 <section class="container">
   <div class="layout">
 
-    <!-- LEFT CONTENT -->
     <div class="card">
-
       <div class="tab-menu">
-        <button class="active" onclick="openTab('overview',this)">📋 Overview</button>
-        <button onclick="openTab('itinerary',this)">🗺️ Itinerary</button>
-        <button onclick="openTab('highlights',this)">✨ Highlights</button>
-        <button onclick="openTab('price',this)">💼 Price & Packages</button>
+        <button class="active" onclick="openTab('overview',this)">Overview</button>
+        <button onclick="openTab('itinerary',this)">Itinerary</button>
+        <button onclick="openTab('highlights',this)">Highlights</button>
+        <button onclick="openTab('price',this)">Price & Packages</button>
       </div>
 
       <div id="overview" class="tab-content active">
-  <h2>📋 Package Overview</h2>
-  <p><strong>3D2N Jakarta – Bandung Student Trip</strong> adalah open trip khusus mahasiswa & komunitas kampus yang ingin liburan singkat, seru, dan terorganisir dengan harga terjangkau.</p>
-
-  <div class="overview-grid">
-    <div class="overview-card">
-      <span class="icon">🚌</span>
-      <h4>Start dari Semarang</h4>
-      <p>Berangkat bersama dari Semarang menggunakan bus pariwisata AC yang nyaman dan aman.</p>
-    </div>
-    <div class="overview-card">
-      <span class="icon">🏨</span>
-      <h4>Hotel Nyaman</h4>
-      <p>Menginap 2 malam di hotel pilihan dengan sistem sharing room.</p>
-    </div>
-    <div class="overview-card">
-      <span class="icon">🍽️</span>
-      <h4>All-in Facilities</h4>
-      <p>Sudah termasuk transport, hotel, makan, tiket wisata, dan tour leader.</p>
-    </div>
-    <div class="overview-card">
-      <span class="icon">🎓</span>
-      <h4>Cocok untuk Mahasiswa</h4>
-      <p>Dirancang khusus untuk mahasiswa, UKM, dan komunitas kampus.</p>
-    </div>
-  </div>
-</div>
-
-      <div id="itinerary" class="tab-content">
-  <h2>🗺️ Detail Itinerary</h2>
-  <p>Estimasi waktu bersifat fleksibel dan dapat menyesuaikan kondisi perjalanan di lapangan.</p>
-
-  <div class="overview-card">
-    <span class="icon">📍</span>
-    <h4>DAY 1 — Semarang → Jakarta</h4>
-    <div class="itinerary-timeline">
-      <div class="timeline-item"><div class="timeline-time">⏰ 04.00 – 05.00</div><div class="timeline-desc">Meeting point, briefing & persiapan keberangkatan</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 05.00 – 09.00</div><div class="timeline-desc">Perjalanan Semarang → Jakarta (Bus AC)</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 09.00 – 10.00</div><div class="timeline-desc">ISHOMA di rest area</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 12.30 – 13.30</div><div class="timeline-desc">Tiba di Ancol & makan siang</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 13.30 – 18.00</div><div class="timeline-desc">Explore Dufan & Ancol Beach</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 18.30 – 19.30</div><div class="timeline-desc">Makan malam bersama</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 20.00 – selesai</div><div class="timeline-desc">Check-in hotel & istirahat</div></div>
-    </div>
-  </div>
-
-  <div class="overview-card">
-    <span class="icon">🏙️</span>
-    <h4>DAY 2 — Jakarta → Bandung</h4>
-    <div class="itinerary-timeline">
-      <div class="timeline-item"><div class="timeline-time">⏰ 06.00 – 07.00</div><div class="timeline-desc">Sarapan pagi di hotel</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 07.30 – 11.30</div><div class="timeline-desc">Check-out & perjalanan menuju Bandung</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 11.30 – 12.30</div><div class="timeline-desc">Makan siang</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 13.00 – 15.30</div><div class="timeline-desc">Wisata belanja Cibaduyut</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 16.30 – 18.00</div><div class="timeline-desc">Explore Braga Street & free time</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 18.30 – 19.30</div><div class="timeline-desc">Makan malam</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 20.00 – selesai</div><div class="timeline-desc">Check-in hotel & istirahat</div></div>
-    </div>
-  </div>
-
-  <div class="overview-card">
-    <span class="icon">🌋</span>
-    <h4>DAY 3 — Bandung → Semarang</h4>
-    <div class="itinerary-timeline">
-      <div class="timeline-item"><div class="timeline-time">⏰ 06.00 – 07.00</div><div class="timeline-desc">Sarapan & check-out hotel</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 07.30 – 09.30</div><div class="timeline-desc">Perjalanan menuju Kawah Putih Ciwidey</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 09.30 – 11.30</div><div class="timeline-desc">Explore Kawah Putih & foto bersama</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 12.00 – 13.00</div><div class="timeline-desc">Makan siang</div></div>
-      <div class="timeline-item"><div class="timeline-time">⏰ 13.30 – 22.00</div><div class="timeline-desc">Perjalanan kembali ke Semarang</div></div>
-    </div>
-  </div>
-</div>
-
-<div id="highlights" class="tab-content"> class="tab-content">
-  <h2>✨ Trip Highlights</h2>
-  <p>Pengalaman terbaik yang akan kamu dapatkan selama mengikuti open trip 3D2N Jakarta – Bandung bersama <strong>RuangBermain Trip</strong>.</p>
-
-  <div class="highlight-grid">
-    <div class="highlight-card">
-      <span class="icon">🎢</span>
-      <h4>Dufan & Ancol Beach</h4>
-      <p>Nikmati wahana seru Dunia Fantasi dan bersantai di pantai Ancol bersama teman satu rombongan.</p>
-    </div>
-
-    <div class="highlight-card">
-      <span class="icon">🏙️</span>
-      <h4>Braga Street Bandung</h4>
-      <p>Jalan santai sore hari di kawasan ikonik Bandung dengan suasana klasik dan spot foto estetik.</p>
-    </div>
-
-    <div class="highlight-card">
-      <span class="icon">🌋</span>
-      <h4>Kawah Putih Ciwidey</h4>
-      <p>Eksplorasi wisata alam dengan panorama kawah putih yang eksotis dan udara sejuk pegunungan.</p>
-    </div>
-
-    <div class="highlight-card">
-      <span class="icon">🚌</span>
-      <h4>Nyaman & Terorganisir</h4>
-      <p>Perjalanan menggunakan bus pariwisata AC, dipandu tour leader berpengalaman dari awal hingga akhir.</p>
-    </div>
-
-    <div class="highlight-card">
-      <span class="icon">🤝</span>
-      <h4>Cocok untuk Mahasiswa</h4>
-      <p>Dirancang khusus untuk mahasiswa, komunitas, dan organisasi kampus dengan harga terjangkau.</p>
-    </div>
-
-    <div class="highlight-card">
-      <span class="icon">📸</span>
-      <h4>Dokumentasi Kenangan</h4>
-      <p>Dokumentasi foto grup untuk mengabadikan momen kebersamaan selama trip.</p>
-    </div>
-  </div>
-</div>
-
-      <div id="price" class="tab-content">
-  <h2>💼 Price & Packages</h2>
-  <p class="price-desc">Satu paket lengkap (all-in) tanpa biaya tersembunyi, dirancang khusus untuk mahasiswa & komunitas.</p>
-
-  <div class="overview-grid">
-
-    <div class="overview-card">
-      <span class="icon">🎒</span>
-      <h4>Student Trip Package (All In)</h4>
-      <p>Paket perjalanan utama untuk open trip 3D2N Jakarta – Bandung.</p>
-      <ul class="package-list">
-        <li>Bus pariwisata AC (PP Semarang – Jakarta – Bandung)</li>
-        <li>Hotel 2 malam (sharing room)</li>
-        <li>Makan sesuai program (3x makan + 2x sarapan)</li>
-        <li>Tiket wisata: Dufan, Ancol Beach & Kawah Putih</li>
-        <li>Tour leader & driver berpengalaman</li>
-        <li>Air mineral selama perjalanan</li>
-        <li>Dokumentasi foto grup</li>
-      </ul>
-    </div>
-
-    <div class="overview-card">
-      <span class="icon">⭐</span>
-      <h4>Benefits</h4>
-      <p>Keuntungan tambahan yang kamu dapatkan.</p>
-      <ul class="package-list">
-        <li>Tanpa biaya tambahan (no hidden cost)</li>
-        <li>Harga khusus mahasiswa & rombongan kampus</li>
-        <li>Gratis konsultasi itinerary & rundown</li>
-        <li>Fleksibel request destinasi & waktu</li>
-        <li>Cocok untuk study tour, gathering & liburan kampus</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-    </div>
-
-    <!-- RIGHT PRICE -->
-    <div class="price-box">
-      <span class="price-label">Starting price</span>
-      <div class="price">IDR 1.530.000</div>
-      <div class="price-note">per person (sharing room)</div>
-
-      <div class="price-benefits">
-        <div>✔ Transport & hotel</div>
-        <div>✔ Meals & tiket wisata</div>
-        <div>✔ Tour leader</div>
+        <h2>Package Overview</h2>
+        <div class="grid">
+          <div class="box"><span class="icon">🚌</span><h4>Semarang Departure</h4><p>Comfortable AC tourism bus from Semarang.</p></div>
+          <div class="box"><span class="icon">🏨</span><h4>2 Nights Hotel</h4><p>Shared room accommodation in selected hotels.</p></div>
+          <div class="box"><span class="icon">🍽️</span><h4>All-In Facilities</h4><p>Transport, meals, tickets, and tour leader included.</p></div>
+          <div class="box"><span class="icon">🎓</span><h4>Student Oriented</h4><p>Designed for students, campus trips, and communities.</p></div>
+        </div>
       </div>
 
-      <a href="https://wa.me/6285806537009" class="btn">Chat RuangBermain Trip</a>
+      <div id="itinerary" class="tab-content">
+        <h2>Detailed Itinerary</h2>
+        <p>Time schedule is estimated and may adjust to traffic and on-site conditions.</p>
+
+        <h4>Day 1 – Semarang → Jakarta</h4>
+        <div class="timeline">
+          <div class="step"><div class="time">04.00 – 05.00</div><div class="desc">Meeting point in Semarang, registration & trip briefing</div></div>
+          <div class="step"><div class="time">05.00 – 09.00</div><div class="desc">Departure Semarang → Jakarta by AC tourism bus</div></div>
+          <div class="step"><div class="time">09.00 – 10.00</div><div class="desc">Rest area stop & breakfast (personal expense)</div></div>
+          <div class="step"><div class="time">12.30 – 13.30</div><div class="desc">Arrival in Jakarta & lunch</div></div>
+          <div class="step"><div class="time">13.30 – 18.00</div><div class="desc">Explore Ancol Area & Dunia Fantasi (Dufan)</div></div>
+          <div class="step"><div class="time">18.30 – 19.30</div><div class="desc">Dinner together</div></div>
+          <div class="step"><div class="time">20.00 – Finish</div><div class="desc">Hotel check-in & rest</div></div>
+        </div>
+
+        <h4>Day 2 – Jakarta → Bandung</h4>
+        <div class="timeline">
+          <div class="step"><div class="time">06.00 – 07.00</div><div class="desc">Breakfast at hotel</div></div>
+          <div class="step"><div class="time">07.30 – 11.30</div><div class="desc">Check-out & travel to Bandung</div></div>
+          <div class="step"><div class="time">11.30 – 12.30</div><div class="desc">Lunch at local restaurant</div></div>
+          <div class="step"><div class="time">13.00 – 15.30</div><div class="desc">Shopping tour at Cibaduyut Leather Center</div></div>
+          <div class="step"><div class="time">16.30 – 18.00</div><div class="desc">Walking tour & free time at Braga Street</div></div>
+          <div class="step"><div class="time">18.30 – 19.30</div><div class="desc">Dinner together</div></div>
+          <div class="step"><div class="time">20.00 – Finish</div><div class="desc">Hotel check-in & rest</div></div>
+        </div>
+
+        <h4>Day 3 – Bandung → Semarang</h4>
+        <div class="timeline">
+          <div class="step"><div class="time">06.00 – 07.00</div><div class="desc">Breakfast & hotel check-out</div></div>
+          <div class="step"><div class="time">07.30 – 09.30</div><div class="desc">Travel to Kawah Putih Ciwidey</div></div>
+          <div class="step"><div class="time">09.30 – 11.30</div><div class="desc">Explore Kawah Putih & group photo session</div></div>
+          <div class="step"><div class="time">12.00 – 13.00</div><div class="desc">Lunch</div></div>
+          <div class="step"><div class="time">13.30 – 22.00</div><div class="desc">Return trip Bandung → Semarang</div></div>
+        </div>
+      </div>
+
+      <div id="highlights" class="tab-content">
+        <h2>Trip Highlights</h2>
+        <div class="grid">
+          <div class="box"><span class="icon">🎢</span><h4>Dufan & Ancol</h4><p>Exciting rides and beach atmosphere.</p></div>
+          <div class="box"><span class="icon">🌋</span><h4>Kawah Putih</h4><p>Iconic volcanic lake with stunning scenery.</p></div>
+          <div class="box"><span class="icon">🏙️</span><h4>Braga Street</h4><p>Classic Bandung city vibes.</p></div>
+          <div class="box"><span class="icon">📸</span><h4>Group Memories</h4><p>Documented moments with new friends.</p></div>
+        </div>
+      </div>
+
+      <div id="price" class="tab-content">
+        <h2>Price & Packages</h2>
+        <p>One complete all-in package with no hidden costs, specially designed for students & communities.</p>
+
+        <div class="grid">
+          <div class="box">
+            <span class="icon">🎒</span>
+            <h4>Student Trip Package (All In)</h4>
+            <p>The main travel package for a 3D2N open trip from Jakarta to Bandung.</p>
+            <ul>
+              <li>AC Tour Bus (round trip from Semarang → Jakarta → Bandung)</li>
+              <li>2-night hotel stay (shared room)</li>
+              <li>Meals according to the program (3 meals + 2 breakfasts)</li>
+              <li>Attraction tickets: Dufan, Ancol Beach, and Kawah Putih</li>
+              <li>Experienced tour leader and professional driver</li>
+              <li>Mineral water during the trip</li>
+              <li>Group photo documentation</li>
+            </ul>
+          </div>
+
+          <div class="box" style="border:1px solid rgba(34,197,94,.5)">
+            <span class="icon">⭐</span>
+            <h4>Benefits</h4>
+            <p>Additional benefits you'll receive.</p>
+            <ul>
+              <li>No additional fees (no hidden costs)</li>
+              <li>Special prices for students and campus groups</li>
+              <li>Free itinerary and rundown consultation</li>
+              <li>Flexible destination and time requests</li>
+              <li>Suitable for study tours, gatherings, and campus vacations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-box">
+      <div>Starting from</div>
+      <div class="price">IDR 1,530,000</div>
+      <div>per person</div>
+      <a class="btn" href="https://wa.me/6285806537009">Chat RuangBermain Trip</a>
     </div>
 
   </div>
 </section>
 
-<footer>
-  © 2025 RuangBermain Trip — GitHub Pages Project
-</footer>
+<footer>© 2025 RuangBermain Trip — GitHub Pages</footer>
 
 <script>
-  function openTab(tabId, el) {
-    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-menu button').forEach(b => b.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
+  function openTab(id,el){
+    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-menu button').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
     el.classList.add('active');
   }
 </script>
