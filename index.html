@@ -1,98 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Open Trip 3D2N Jakarta – Bandung</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-body { background: #f5f7fa; color: #333; }
-header { background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('images/banner.jpg'); background-size: cover; background-position: center; color: #fff; padding: 80px 20px; }
-header h1 { font-size: 40px; margin-bottom: 10px; }
-header p { max-width: 600px; }
-.container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-.badge { display: inline-block; background: #2ecc71; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 14px; margin-bottom: 15px; }
-.card { background: #fff; border-radius: 14px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Trip 3D2N Jakarta – Bandung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body { background: #f5f7fa; color: #333; }
+    header { background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('images/banner.jpg'); background-size: cover; background-position: center; color: #fff; padding: 80px 20px; }
+    header h1 { font-size: 40px; margin-bottom: 10px; }
+    header p { max-width: 600px; }
+    .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+    .badge { display: inline-block; background: #2ecc71; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 14px; margin-bottom: 15px; }
+    .card { background: #fff; border-radius: 14px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
 
+    /* TAB STYLE (LIKE SAMPLE) */
+    .tab-menu { display: flex; gap: 25px; border-bottom: 1px solid #ddd; margin-bottom: 25px; }
+    .tab-menu button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      padding: 10px 0;
+      cursor: pointer;
+      color: #777;
+      position: relative;
+    }
+    .tab-menu button.active {
+      color: #27ae60;
+      font-weight: 600;
+    }
+    .tab-menu button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #27ae60;
+      border-radius: 3px 3px 0 0;
+    }
 
-/* TAB STYLE (LIKE SAMPLE) */
-.tab-menu { display: flex; gap: 25px; border-bottom: 1px solid #ddd; margin-bottom: 25px; }
-.tab-menu button {
-background: none;
-border: none;
-font-size: 16px;
-padding: 10px 0;
-cursor: pointer;
-color: #777;
-position: relative;
-}
-.tab-menu button.active {
-color: #27ae60;
-font-weight: 600;
-}
-.tab-menu button.active::after {
-content: '';
-position: absolute;
-bottom: -1px;
-left: 0;
-width: 100%;
-height: 3px;
-background: #27ae60;
-border-radius: 3px 3px 0 0;
-}
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
-
-.tab-content { display: none; }
-.tab-content.active { display: block; }
-
-
-ul { margin-left: 20px; margin-top: 10px; }
-ul li { margin-bottom: 8px; }
-.price { font-size: 32px; font-weight: 700; color: #27ae60; margin: 10px 0; }
-.btn { display: inline-block; background: #f1c40f; color: #000; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; margin-top: 15px; }
-footer { text-align: center; padding: 20px; font-size: 14px; color: #777; }
-</style>
+    ul { margin-left: 20px; margin-top: 10px; }
+    ul li { margin-bottom: 8px; }
+    .price { font-size: 32px; font-weight: 700; color: #27ae60; margin: 10px 0; }
+    .btn { display: inline-block; background: #f1c40f; color: #000; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: 600; margin-top: 15px; }
+    footer { text-align: center; padding: 20px; font-size: 14px; color: #777; }
+  </style>
 </head>
 <body>
 
-
 <header>
-<div class="container">
-<span class="badge">Affordable for Student</span>
-<h1>3D2N Jakarta – Bandung Student Trip</h1>
-<p>Open trip edukatif dan rekreasi untuk mahasiswa. Start dari Semarang, full transport, hotel, dan makan.</p>
-</div>
+  <div class="container">
+    <span class="badge">Affordable for Student</span>
+    <h1>3D2N Jakarta – Bandung Student Trip</h1>
+    <p>Open trip edukatif dan rekreasi untuk mahasiswa. Start dari Semarang, full transport, hotel, dan makan.</p>
+  </div>
 </header>
 
-
 <section class="container">
-<div class="card">
+  <div class="card">
+
+    <div class="tab-menu">
+      <button type="button" class="active" onclick="openTab('overview', this)">Overview</button>
+      <button type="button" onclick="openTab('itinerary', this)">Itinerary</button>
+      <button type="button" onclick="openTab('highlights', this)">Highlights</button>
+      <button type="button" onclick="openTab('price', this)">Price & Package</button>
+    </div>
+
+    <div id="overview" class="tab-content active">
+      <h2>3D2N Jakarta Bandung Student Trip</h2>
+      <p>A short escape that combines amusement parks, beach views, shopping streets, and cool highland nature. Perfect for campus groups.</p>
+      <ul>
+        <li>3 days 2 nights</li>
+        <li>Departure from Semarang campus</li>
+        <li>Private bus & hotel included</li>
+      </ul>
+    </div>
+
+    <div id="itinerary" class="tab-content">
+      <h3>Day 1 – Semarang → Jakarta</h3>
+      <ul>
+        <li>Departure from Semarang</li>
+        <li>Dufan & Ancol Beach</li>
+        <li>Hotel Jakarta</li>
+      </ul>
+
+      <h3>Day 2 – Jakarta → Bandung</h3>
+      <ul>
+        <li>Cibaduyut Shopping</li>
+        <li>Braga Street</li>
+        <li>Hotel Bandung</li>
+      </ul>
+
+      <h3>Day 3 – Bandung → Semarang</h3>
+      <ul>
+        <li>Kawah Putih Ciwidey</li>
+        <li>Return to Semarang</li>
+      </ul>
+    </div>
+
+    <div id="highlights" class="tab-content">
+      <ul>
+        <li>🎡 Jakarta amusement & beach experience</li>
+        <li>🛍️ Bandung shopping & heritage walk</li>
+        <li>🌋 Cool highland vibes at Kawah Putih</li>
+        <li>👥 Campus-friendly group program</li>
+      </ul>
+    </div>
+
+    <div id="price" class="tab-content">
+      <p class="price">IDR 1.530.000 / pax</p>
+      <p>✔ Transport Bus</p>
+      <p>✔ Hotel 2 nights</p>
+      <p>✔ Meals & entrance tickets</p>
+      <a href="https://wa.me/628xxxxxxxxxx" class="btn">Chat via WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function openTab(tabId, element) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-menu button');
+
+    contents.forEach(c => c.classList.remove('active'));
+    buttons.forEach(b => b.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+    element.classList.add('active');
+  }
+</script>
 
 
-<div class="tab-menu">
-<button class="active" onclick="openTab('overview', this)">Overview</button>
-<button onclick="openTab('itinerary', this)">Itinerary</button>
-<button onclick="openTab('highlights', this)">Highlights</button>
-<button onclick="openTab('price', this)">Price & Package</button>
-</div>
 
 
-<div id="overview" class="tab-content active">
-<h2>3D2N Jakarta Bandung Student Trip</h2>
-<p>A short escape that combines amusement parks, beach views, shopping streets, and cool highland nature. Perfect for campus groups.</p>
-<ul>
-<li>3 days 2 nights</li>
-<li>Departure from Semarang campus</li>
-<li>Private bus & hotel included</li>
-</ul>
-</div>
 
+<footer>
+  © 2025 Open Trip Mahasiswa – Project GitHub Pages
+</footer>
 
-<div id="itinerary" class="tab-content">
-<h3>Day 1 – Semarang → Jakarta</h3>
-<ul>
-<li>Departure from Semarang</li>
-<li>Dufan & Ancol Beach</li>
+</body>
+</html>
